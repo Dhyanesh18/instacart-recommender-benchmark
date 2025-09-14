@@ -3,6 +3,21 @@ import torch.nn as nn
 
 
 class FactorizationMachineModel(nn.Module):
+    """
+    Simple Factorization Machine for user–product prediction.
+
+    - Each user and product has a k-dimensional embedding (latent factors).
+    - Each user and product also has a bias term, plus a global bias.
+    - Prediction = global bias + user bias + product bias 
+                    + dot(user_embedding, product_embedding).
+
+    Args:
+        user (Tensor): user indices (batch_size,)
+        product (Tensor): product indices (batch_size,)
+
+    Returns:
+        Tensor: raw scores (logits), shape (batch_size,)
+    """
     def __init__(self, num_users, num_products, k):
         super(FactorizationMachineModel, self).__init__()
         self.user_embeds = nn.Embedding(num_users, k)
