@@ -4,7 +4,7 @@ import torch.nn as nn
 
 class FactorizationMachineModel(nn.Module):
     """
-    Simple Factorization Machine for user–product prediction.
+    Simple Factorization Machine for user-product prediction.
 
     - Each user and product has a k-dimensional embedding (latent factors)
     - Each user and product also has a bias term, plus a global bias
