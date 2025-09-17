@@ -112,3 +112,5 @@ for epoch in range(EPOCHS):
 
     avg_loss = total_loss/len(dataloader)
     print(f"EPOCH {epoch+1}/{EPOCHS}, Loss: {avg_loss:.4f}")
+
+torch.save(model.state_dict(), "fm_model.pth")
